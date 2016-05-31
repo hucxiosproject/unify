@@ -1,0 +1,26 @@
+{
+  "name": "unify-core-js",
+  "version": "0.9.0",
+  "description": "unify core js",
+  "main": "src/init.js",
+  "scripts": {
+    "test": "test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@gitlab.captain.bengjiujie.com:1022/unify/unify-core-js.git"
+  },
+  "keywords": [
+    "unify-core-js"
+  ],
+  "author": "VOC",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-ignore": "^2.0.1",
+    "gulp-jshint": "^2.0.0",
+    "gulp-jshint-file-reporter": "0.0.2",
+    "jshint": "^2.8.0",
+    "jslint": "^0.9.5"
+  }
+}

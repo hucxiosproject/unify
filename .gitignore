@@ -1,0 +1,12 @@
+.DS_Store
+obj/
+bin/
+Carthage/
+Cartfile.resolved
+.gradle
+/local.properties
+.idea/
+/.idea/	
+/build
+/captures
+/gradle

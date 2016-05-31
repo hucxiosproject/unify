@@ -1,0 +1,7 @@
+https://github.com/google/leveldb
+
+Branch: master
+
+Latest commit e84b5bd  on Feb 23, 2016
+
+If you want to update leveldb, simply download from trunk and replace it here

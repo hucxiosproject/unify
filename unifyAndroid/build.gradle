@@ -1,0 +1,217 @@
+apply plugin: 'com.android.model.library'
+
+def include_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework"
+def boost_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework/boost_1_60_0"
+def boost_src_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework/boost_1_60_0/libs"
+
+
+def leveldb_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework/leveldb-master"
+
+def leveldb_db_src_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework/leveldb-master/db"
+def leveldb_helpers_memenv_src_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework/leveldb-master/helpers/memenv"
+def leveldb_table_src_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework/leveldb-master/table"
+def leveldb_util_src_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework/leveldb-master/util"
+def leveldb_port_src_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework/leveldb-master/port"
+def leveldb_include_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework/leveldb-master/include"
+
+
+
+
+def duktape_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework/duktape1.4.0"
+def network_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework/platform/network"
+def common_include_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework/include"
+def platform_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework/platform"
+def duktape_extra_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework/duktape_extra"
+def platform_android_jni_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework/platform/android/jni"
+def platform_android_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework/platform/android"
+def zip_support_path = file(project(':unifyAndroid').projectDir).absolutePath + "/../unifyframework/support/zip_support"
+
+
+model {
+    android {
+        compileSdkVersion 23
+        buildToolsVersion "23.0.1"
+        ndk {
+            moduleName "unifylib"
+            stl "gnustl_shared"
+
+            //C++ flags for compiler
+            cppFlags.add("-I${boost_path}".toString())
+            cppFlags.add("-I${duktape_path}".toString())
+            cppFlags.add("-I${network_path}".toString())
+            cppFlags.add("-I${common_include_path}".toString())
+            cppFlags.add("-I${platform_path}".toString())
+            cppFlags.add("-I${duktape_extra_path}".toString())
+            cppFlags.add("-I${platform_android_jni_path}".toString())
+            cppFlags.add("-I${platform_android_path}".toString())
+            cppFlags.add("-I${zip_support_path}".toString())
+            cppFlags.add("-I${include_path}".toString())
+
+            //For leveldb
+            cppFlags.add("-I${leveldb_path}".toString())
+            cppFlags.add("-I${leveldb_db_src_path}".toString())
+            cppFlags.add("-I${leveldb_helpers_memenv_src_path}".toString())
+            cppFlags.add("-I${leveldb_table_src_path}".toString())
+            cppFlags.add("-I${leveldb_util_src_path}".toString())
+            cppFlags.add("-I${leveldb_port_src_path}".toString())
+            cppFlags.add("-I${leveldb_include_path}".toString())
+
+
+            cppFlags.add("-fexceptions")
+            cppFlags.add("-frtti")
+            cppFlags.add("-std=c++11")
+            cppFlags.add("-DUSE_FILE32API")
+            cppFlags.add("-DCE_DEBUG")
+
+            //For leveldb
+            cppFlags.add("-DOS_ANDROID")
+            cppFlags.add("-DLEVELDB_PLATFORM_POSIX")
+            cppFlags.add("-DLEVELDB_ATOMIC_PRESENT")
+
+            //For Duktape debugger
+            cppFlags.add("-DDUK_CMDLINE_DEBUGGER_SUPPORT")
+            cppFlags.add("-DDUK_OPT_DEBUGGER_SUPPORT")
+            cppFlags.add("-DDUK_OPT_INTERRUPT_COUNTER")
+
+
+
+            //C flags - almost same as for C++
+            CFlags.add("-DUSE_FILE32API")
+            CFlags.add("-DCE_DEBUG")
+
+            //For leveldb
+            CFlags.add("-DOS_ANDROID")
+            CFlags.add("-DLEVELDB_PLATFORM_POSIX")
+            CFlags.add("-DLEVELDB_ATOMIC_PRESENT")
+
+
+            //For Duktape debugger
+            CFlags.add("-DDUK_CMDLINE_DEBUGGER_SUPPORT")
+            CFlags.add("-DDUK_OPT_DEBUGGER_SUPPORT")
+            CFlags.add("-DDUK_OPT_INTERRUPT_COUNTER")
+
+
+            CFlags.add("-I${boost_path}".toString())
+            CFlags.add("-I${duktape_path}".toString())
+            CFlags.add("-I${network_path}".toString())
+            CFlags.add("-I${common_include_path}".toString())
+            CFlags.add("-I${platform_path}".toString())
+            CFlags.add("-I${duktape_extra_path}".toString())
+            CFlags.add("-I${platform_android_jni_path}".toString())
+            CFlags.add("-I${platform_android_path}".toString())
+            CFlags.add("-I${zip_support_path}".toString())
+            CFlags.add("-I${include_path}".toString())
+
+            //For leveldb
+            CFlags.add("-I${leveldb_path}".toString())
+            CFlags.add("-I${leveldb_db_src_path}".toString())
+            CFlags.add("-I${leveldb_helpers_memenv_src_path}".toString())
+            CFlags.add("-I${leveldb_table_src_path}".toString())
+            CFlags.add("-I${leveldb_util_src_path}".toString())
+            CFlags.add("-I${leveldb_port_src_path}".toString())
+            CFlags.add("-I${leveldb_include_path}".toString())
+
+
+
+            ldLibs.add("c")
+            ldLibs.add("z")
+            ldLibs.add("log")
+            abiFilters.add("armeabi-v7a")
+        }
+
+        defaultConfig {
+            minSdkVersion.apiLevel 11
+            targetSdkVersion.apiLevel 23
+            versionCode 1
+            versionName "1.0"
+            ndk.abiFilters.add("armeabi-v7a")
+        }
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles.add(file("proguard-rules.pro"))
+            }
+        }
+
+        // Configures source set directory.
+        sources {
+            main {
+                jni {
+                    source {
+                        srcDirs boost_src_path, duktape_path, network_path, common_include_path, duktape_extra_path, platform_path, platform_android_path, platform_android_jni_path, zip_support_path, leveldb_db_src_path, leveldb_helpers_memenv_src_path, leveldb_table_src_path, leveldb_util_src_path, leveldb_port_src_path
+
+                        //Some useless stuff from leveldb, we don't need them
+                        exclude "**/db_bench.cc"
+                        exclude "**/leveldbutil.cc"
+                        exclude "**/autocompact_test.cc"
+                        exclude "**/c_test.c"
+                        exclude "**/corruption_test.cc"
+                        exclude "**/db_test.cc"
+                        exclude "**/dbformat_test.cc"
+                        exclude "**/fault_injection_test.cc"
+                        exclude "**/filename_test.cc"
+                        exclude "**/log_test.cc"
+                        exclude "**/recovery_test.cc"
+                        exclude "**/skiplist_test.cc"
+                        exclude "**/version_edit_test.cc"
+                        exclude "**/version_set_test.cc"
+                        exclude "**/write_batch_test.cc"
+                        exclude "**/memenv_test.cc"
+                        exclude "**/filter_block_test.cc"
+                        exclude "**/table_test.cc"
+                        exclude "**/arena_test.cc"
+                        exclude "**/bloom_test.cc"
+                        exclude "**/cache_test.cc"
+                        exclude "**/coding_test.cc"
+                        exclude "**/crc32c_test.cc"
+                        exclude "**/env_test.cc"
+                        exclude "**/hash_test.cc"
+
+                        exclude "**/https.cpp"
+
+                    }
+                    exportedHeaders {
+                        srcDirs = [boost_path, duktape_path, network_path, common_include_path, platform_path, duktape_extra_path, platform_android_jni_path, platform_android_path, zip_support_path, include_path]
+                    }
+                }
+                assets {
+                    source {
+                        srcDir "../Resources"
+                    }
+                }
+            }
+        }
+    }
+    android.dexOptions {
+        incremental true
+        jumboMode true
+    }
+
+    android.lintOptions {
+        abortOnError false
+    }
+
+}
+
+apply plugin: 'maven-publish'
+apply plugin: 'maven'
+
+group = 'vocinno'
+version = '1.0'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "file://" + file(project(':unifyAndroid').projectDir).absolutePath + "/../mavenRepo")
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //compile 'vocinno:androidlibrary:1.0'
+    compile project(':androidlibrary')
+}
+
+
+

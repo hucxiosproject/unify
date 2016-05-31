@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "046C2F51BC4A4154C947662704A3F8641CBE6B99",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "046C2F51BC4A4154C947662704A3F8641CBE6B99" : 0,
+    "8B65FCB459003C791BF6E92AA9458125470DE43E" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "41B6EFCA-154F-4493-AF99-CDA6F69A4C55",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "046C2F51BC4A4154C947662704A3F8641CBE6B99" : "unifyframework",
+    "8B65FCB459003C791BF6E92AA9458125470DE43E" : "laohaowan-main\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "unifyframework",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "unifyframework.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/gitlab.captain.bengjiujie.com:1022\/unify\/unifyframework.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "046C2F51BC4A4154C947662704A3F8641CBE6B99"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/gitlab.captain.bengjiujie.com:1022\/laohaowan\/laohaowan-main.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8B65FCB459003C791BF6E92AA9458125470DE43E"
+    }
+  ]
+}
